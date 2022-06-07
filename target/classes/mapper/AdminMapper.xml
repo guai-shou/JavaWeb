@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.javaweb.mapper.AdminMapper">
+    <insert id="insertPermission">
+        insert into admin_authority (a_id, au_id) values
+        <foreach collection="permissionList" item="permission" separator=",">
+            (#{id}, (select id from authority where permission_name = #{permission}))
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{b as r,e as o}from"./index.1ab5ed35.js";const a={};function c(t,n){return r(),o("div",null,"admin home")}var _=e(a,[["render",c]]);export{_ as default};

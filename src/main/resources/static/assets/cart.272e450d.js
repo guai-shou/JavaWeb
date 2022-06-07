@@ -1,0 +1,1 @@
+import{a0 as e}from"./index.1ab5ed35.js";const r=()=>e({url:"/cart/selectAll"}),o=t=>e({url:`/cart/add/${t}`,method:"post"}),s=(t,a)=>e({url:"/cart/update",method:"put",data:{bid:t,bookNumber:a}}),u=t=>e({url:`/cart/delete/${t}`,method:"delete"});export{o as a,u as d,r as g,s as u};

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.javaweb.mapper.NoticeMapper">
+    <resultMap id="noticeVo" type="com.example.javaweb.entity.vo.NoticeVo">
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="details" property="details"/>
+        <result column="update_time" property="updateTime" />
+        <association property="admin" javaType="com.example.javaweb.entity.Admin">
+            <result column="a_id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="passwd" property="passwd"/>
+        </association>
+    </resultMap>
+    <select id="selectAll" resultMap="noticeVo">
+        select * from notice n,admin a where  a.id = n.a_id and n.deleted = 0 and a.deleted = 0;
+    </select>
+
+
+    <select id="selectNoticeVoById" resultMap="noticeVo" parameterType="integer">
+        select a.*, n.* from admin a, notice n where  a.id = n.a_id and n.id = #{id} and n.deleted = 0 and a.deleted = 0;
+    </select>
+</mapper>
